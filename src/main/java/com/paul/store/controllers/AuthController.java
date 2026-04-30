@@ -60,7 +60,7 @@ public class AuthController {
         if (jwt == null || jwt.isExpired()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        ;
+
 
         var user = userRepository.findById(jwt.getUserId()).orElseThrow();
         var accessToken = jwtService.generateAccessToken(user);
